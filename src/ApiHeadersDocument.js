@@ -23,7 +23,7 @@ import '@anypoint-web-components/anypoint-button/anypoint-button.js';
  * @memberof ApiElements
  */
 export class ApiHeadersDocument extends LitElement {
-  static get styles() {
+  get styles() {
     return css`:host {
       display: block;
     }
@@ -91,7 +91,7 @@ export class ApiHeadersDocument extends LitElement {
   render() {
     const { aware, opened, headers, amf, narrow, compatibility, headerLevel, graph } = this;
     const hasHeaders = !!(headers && headers.length);
-    return html`
+    return html`<style>${this.styles}</style>
     ${aware ?
       html`<raml-aware @api-changed="${this._apiChangedHandler}" .scope="${aware}"></raml-aware>` : undefined}
 
