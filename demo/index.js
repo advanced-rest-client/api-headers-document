@@ -39,12 +39,22 @@ class ApiDemo extends ApiDemoPageBase {
 
   setData(id) {
     const helper = this.helper;
-    const webApi = helper._computeWebApi(this.amf);
+    const webApi = helper._computeApi(this.amf);
     const method = helper._computeMethodModel(webApi, id);
     const expects = helper._computeExpects(method);
     const headers = helper._computeHeaders(expects);
     this.headers = headers;
     this.hasData = true;
+  }
+
+  _apiListTemplate() {
+    return [
+      ['demo-api', 'Demo API'],
+      ['async-api', 'Async API'],
+    ].map(([file, label]) => html`
+      <anypoint-item data-src="${file}-compact.json">${label} - compact model</anypoint-item>
+      <anypoint-item data-src="${file}.json">${label}</anypoint-item>
+      `);
   }
 
   contentTemplate() {
