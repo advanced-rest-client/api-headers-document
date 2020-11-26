@@ -61,7 +61,7 @@ class ApiDemo extends ApiDemoPageBase {
     return html`
     <demo-element id="helper" .amf="${this.amf}"></demo-element>
     ${this.hasData ?
-      html`<api-headers-document opened aware="model" .headers="${this.headers}" ?narrow="${this.narrowActive}"></api-headers-document>` :
+      html`<api-headers-document .amf="${this.amf}" opened aware="model" .headers="${this.headers}" ?narrow="${this.narrowActive}"></api-headers-document>` :
       html`<p>Select a HTTP method in the navigation to see the demo.</p>`}
     `;
   }
