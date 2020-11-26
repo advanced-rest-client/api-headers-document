@@ -90,7 +90,7 @@ export class ApiHeadersDocument extends LitElement {
 
   render() {
     const { aware, opened, headers, amf, narrow, compatibility, headerLevel, graph } = this;
-    const hasHeaders = !!(headers && headers.length);
+    const hasHeaders = !!(headers);
     return html`<style>${this.styles}</style>
     ${aware ?
       html`<raml-aware @api-changed="${this._apiChangedHandler}" .scope="${aware}"></raml-aware>` : ''}
