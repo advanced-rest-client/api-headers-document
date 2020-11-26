@@ -65,7 +65,7 @@ describe('<api-headers-document>', function() {
     });
 
     it('is accessible', async () => {
-      await assert.isAccessible(element);
+      await assert.isAccessible(element, { ignoredRules: ['color-contrast'] });
     });
   });
 
@@ -177,6 +177,24 @@ describe('<api-headers-document>', function() {
           await aTimeout();
           const node = element.shadowRoot.querySelector('[role="heading"]');
           assert.equal(node.getAttribute('aria-level'), '4');
+        });
+      });
+
+      describe('AsyncAPI', () => {
+        const asyncApi = 'async-api';
+        let asyncModel;
+
+        before(async () => {
+          asyncModel = await AmfLoader.load(compact, asyncApi);
+          headers = AmfLoader.lookupHeaders(asyncModel, 'hello', 'publish');
+        });
+
+        beforeEach(async () => {
+          element = await openedFixture(asyncModel, headers);
+        });
+
+        it('renders headers', () => {
+          assert.exists(element.shadowRoot.querySelectorAll('api-type-document'));
         });
       });
     });
