@@ -9,8 +9,11 @@ window.customElements.define('helper-element', HelperElement);
 const helper = new HelperElement();
 
 
-AmfLoader.load = async function(compact) {
-  const file = '/demo-api' + (compact ? '-compact' : '') + '.json';
+AmfLoader.load = async function(compact, modelName) {
+  if (!modelName) {
+    modelName = 'demo-api'
+  }
+  const file = '/' + modelName + (compact ? '-compact' : '') + '.json';
   const url = location.protocol + '//' + location.host + '/base/demo/' + file;
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest();
@@ -34,7 +37,7 @@ AmfLoader.load = async function(compact) {
 
 AmfLoader.lookupOperation = function(model, endpoint, operation) {
   helper.amf = model;
-  const webApi = helper._computeWebApi(model);
+  const webApi = helper._computeApi(model);
   const endPoint = helper._computeEndpointByPath(webApi, endpoint);
   const opKey = helper._getAmfKey(helper.ns.aml.vocabularies.apiContract.supportedOperation);
   const ops = helper._ensureArray(endPoint[opKey]);
