@@ -19,15 +19,14 @@ For compatibility with previous model version use `3.x.x` version of the compone
 
 Custom property | Description | Default
 ----------------|-------------|----------
-`--api-headers-document-title-border-color` | Border color of the title area | `#e5e5e5`
-`--api-headers-document-toggle-view-color` | Color of the toggle button | `--arc-toggle-view-icon-color` or `rgba(0, 0, 0, 0.74)`
-`--api-headers-document-toggle-view-hover-color` | Color of the toggle button when hovering. Please, mind that hover is not available on all devices. | `--arc-toggle-view-icon-hover-color` or `rgba(0, 0, 0, 0.88)`
-`--toggle-button-color`  |   |  ``
-`--toggle-button-font-weight`  |   |  ``
-`-no-info-message-font-style` |   |  `italic`
+`--arc-font-subhead-color` | Color of the collapsible section title | ``
+`--arc-font-subhead-font-size` | Font size of the collapsible section title | ``
+`--arc-font-subhead-line-height` | Line height of the collapsible section title | ``
+`--arc-font-subhead-narrow-font-size` | Font size of the collapsible section title in mobile-friendly view | ``
+`--api-parameters-document-title-border-color` | Border color of the collapsible section title area | `#e5e5e5`
+`--no-info-message-font-style` |   |  `italic`
 `--no-info-message-font-size`  |   |  `16px`
 `--no-info-message-color`  |   |  `rgba(0, 0, 0, 0.74)`
-`--api-headers-document-title-narrow-font-size` |   | `17px`
 
 ## Usage
 
@@ -88,4 +87,4 @@ npm test
 
 ## API components
 
-This components is a part of [API components ecosystem](https://elements.advancedrestclient.com/)
+This component is a part of [API components ecosystem](https://elements.advancedrestclient.com/)
