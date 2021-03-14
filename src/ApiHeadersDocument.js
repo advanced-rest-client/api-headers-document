@@ -32,12 +32,9 @@ export class ApiHeadersDocument extends LitElement {
       display: flex;
       flex-direction: row;
       align-items: center;
+      border-bottom: 1px var(--api-headers-document-title-border-color, var(--api-parameters-document-title-border-color, #e5e5e5)) solid;
       cursor: pointer;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
       user-select: none;
-      border-bottom: 1px var(--api-headers-document-title-border-color, #e5e5e5) solid;
       transition: border-bottom-color 0.15s ease-in-out;
     }
 
