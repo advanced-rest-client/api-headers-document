@@ -55,7 +55,7 @@ export class ApiHeadersDocument extends LitElement {
       transform: rotateZ(-180deg);
     }
 
-    .headers-title {
+    .heading3 {
       flex: 1;
       flex-basis: 0.000000001px;
       white-space: nowrap;
@@ -66,14 +66,14 @@ export class ApiHeadersDocument extends LitElement {
       line-height: var(--arc-font-subhead-line-height);
     }
 
+    :host([narrow]) .heading3 {
+      font-size: var(--api-headers-document-title-narrow-font-size, var(--arc-font-subhead-narrow-font-size, 17px));
+    }
+
     .no-info {
       font-style: var(--no-info-message-font-style, italic);
       font-size: var(--no-info-message-font-size, 16px);
       color: var(--no-info-message-color, rgba(0, 0, 0, 0.74));
-    }
-
-    :host([narrow]) .headers-title {
-      font-size: var(--api-headers-document-title-narrow-font-size, 17px);
     }
 
     .icon {
@@ -94,7 +94,7 @@ export class ApiHeadersDocument extends LitElement {
       title="Toggle headers details"
       ?data-opened="${opened}"
     >
-      <div class="headers-title" role="heading" aria-level="${headerLevel}">Headers</div>
+      <div class="heading3" role="heading" aria-level="${headerLevel}">Headers</div>
       <div class="title-area-actions">
         <anypoint-button class="toggle-button" ?compatibility="${compatibility}">
           ${this._computeToggleActionLabel(opened)}
