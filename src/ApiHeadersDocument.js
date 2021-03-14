@@ -57,10 +57,7 @@ export class ApiHeadersDocument extends LitElement {
 
     .heading3 {
       flex: 1;
-      flex-basis: 0.000000001px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      color: var(--arc-font-subhead-color);
       font-size: var(--arc-font-subhead-font-size);
       font-weight: var(--arc-font-subhead-font-weight);
       line-height: var(--arc-font-subhead-line-height);
