@@ -60,7 +60,7 @@ export class ApiHeadersDocument extends LitElement {
       font-weight: var(--api-parameters-document-h3-font-weight, var(--arc-font-subhead-font-weight));
       line-height: var(--api-parameters-document-h3-line-height, var(--arc-font-subhead-line-height));
     }
-
+    
     :host([narrow]) .heading3 {
       font-size: var(--api-headers-document-title-narrow-font-size, var(--arc-font-subhead-narrow-font-size, 17px));
     }
