@@ -82,7 +82,6 @@ export class ApiHeadersDocument extends LitElement {
   render() {
     const { opened, headers, amf, narrow, compatibility, headerLevel, graph, noMainExample } = this;
     const hasHeaders = !!(headers) && (!!headers.length || !!Object.keys(headers).length);
-    const noShowMainExample = noMainExample
     
     return html`<style>${this.styles}</style>
     <section class="headers">
@@ -109,7 +108,7 @@ export class ApiHeadersDocument extends LitElement {
             ?narrow="${narrow}"
             ?graph="${graph}"
             noExamplesActions
-            ?noMainExample="${noShowMainExample}"
+            ?noMainExample="${noMainExample}"
           ></api-type-document>` :
           html`<p class="no-info">Headers are not required by this endpoint</p>`}
       </anypoint-collapse>
