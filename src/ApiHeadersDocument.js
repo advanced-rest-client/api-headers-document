@@ -80,8 +80,10 @@ export class ApiHeadersDocument extends LitElement {
   }
 
   render() {
-    const { opened, headers, amf, narrow, compatibility, headerLevel, graph } = this;
+    const { opened, headers, amf, narrow, compatibility, headerLevel, graph, noMainExample } = this;
     const hasHeaders = !!(headers) && (!!headers.length || !!Object.keys(headers).length);
+    const noShowMainExample = noMainExample
+    
     return html`<style>${this.styles}</style>
     <section class="headers">
       <div
@@ -107,7 +109,7 @@ export class ApiHeadersDocument extends LitElement {
             ?narrow="${narrow}"
             ?graph="${graph}"
             noExamplesActions
-            noMainExample
+            ?noMainExample="${noShowMainExample}"
           ></api-type-document>` :
           html`<p class="no-info">Headers are not required by this endpoint</p>`}
       </anypoint-collapse>
@@ -153,6 +155,10 @@ export class ApiHeadersDocument extends LitElement {
        * Passed to `api-type-document`. Enables internal links rendering for types.
        */
       graph: { type: Boolean },
+      /**
+       * Use to define is show or hide mainExample
+       */
+      noMainExample: { type: Boolean },
     };
   }
 
@@ -167,6 +173,7 @@ export class ApiHeadersDocument extends LitElement {
     this.narrow = false;
     this.compatibility = false;
     this.graph = false;
+    this.noMainExample = true;
   }
 
   // Computes a label for the section toggle buttons.

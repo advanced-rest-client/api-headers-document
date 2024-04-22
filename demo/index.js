@@ -29,7 +29,13 @@ class ApiDemo extends ApiDemoPage {
     const webApi = this._computeApi(this.amf);
     const method = this._computeMethodModel(webApi, id);
     const expects = this._computeExpects(method);
-    const headers = this._computeHeaders(expects);
+    let headers
+    if(expects){
+      headers = this._computeHeaders(expects);
+    }else{
+      const returns = this._computeReturns(method);
+      headers = this._computeHeaderSchema(returns[0]);
+    }
     this.headers = headers;
     this.hasData = true;
   }
@@ -38,6 +44,7 @@ class ApiDemo extends ApiDemoPage {
     return [
       ['demo-api', 'Demo API'],
       ['async-api', 'Async API'],
+      ['jldAsync26', 'Async API 26'],
     ].map(([file, label]) => html`
       <anypoint-item data-src="${file}-compact.json">${label} - compact model</anypoint-item>
       <anypoint-item data-src="${file}.json">${label}</anypoint-item>
